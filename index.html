@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // Forward Strava's query (?code=…&scope=…&state=…) to your app
+      const qs = window.location.search || "";
+      const target = "indoorapp.strava://oauth" + qs; // matches your iOS URL scheme
+      // Fast redirect + fallback
+      window.location.replace(target);
+      setTimeout(() => { window.location.href = target; }, 1000);
+    </script>
+  </head>
+  <body>
+    Redirecting back to the app…
+  </body>
+</html>
